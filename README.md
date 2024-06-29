@@ -15,7 +15,7 @@ _This App is part of jonas schmedtmann's React Course on [Udemy](https://www.ude
 
 1. **Clone Repository:**
    ```bash
-   git clone https://github.com/your-username/usePopcorn.git
+   git clone https://github.com/ibrahim11elian/usePopcorn.git
    ```
 2. **Install Dependencies:**
 
