@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import TextExpander from "./TextExpander";
 import { Loader } from "./Loader";
-import { API_KEY } from "../App";
 import PropTypes from "prop-types";
+
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export function MovieDetails({
   selectedId,

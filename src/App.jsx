@@ -11,8 +11,6 @@ import { WatchedMoviesList } from "./components/WatchedMoviesList";
 import { MovieDetails } from "./components/MovieDetails";
 import PropTypes from "prop-types";
 
-export const API_KEY = "5631193f";
-
 export default function App() {
   const [selectedId, setSelectedId] = useState(null);
   const [watched, setWatched] = useLocalStorageState([], "watched");

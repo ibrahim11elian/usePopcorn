@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 
-const API_KEY = "5631193f";
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 const baseURL = "https://www.omdbapi.com/";
 
 const useGetMovies = (search) => {
