@@ -98,6 +98,7 @@ function MovieHeader({ movie, onCloseMovie }) {
     Runtime: runtime,
     Genre: genre,
     imdbRating,
+    Type: type,
   } = movie;
 
   return (
@@ -111,7 +112,9 @@ function MovieHeader({ movie, onCloseMovie }) {
         <p>
           {released} &bull; {runtime}
         </p>
+
         <p>{genre}</p>
+        {type === "series" && <p>{movie.totalSeasons} Seasons</p>}
         <p>
           <span>⭐️</span>
           {imdbRating} IMDb rating
