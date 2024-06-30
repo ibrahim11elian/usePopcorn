@@ -21,7 +21,6 @@ export function MovieDetails({
     if (userRating) countRef.current++;
   }, [userRating]);
 
-  const isWatched = watched.some((m) => m.imdbID === selectedId);
   const watchedUserRating = watched.find(
     (m) => m.imdbID === selectedId
   )?.userRating;
@@ -71,7 +70,6 @@ export function MovieDetails({
           <MovieHeader movie={movie} onCloseMovie={onCloseMovie} />
           <MovieSection
             movie={movie}
-            isWatched={isWatched}
             watchedUserRating={watchedUserRating}
             userRating={userRating}
             setUserRating={setUserRating}
@@ -130,7 +128,6 @@ MovieHeader.propTypes = {
 
 function MovieSection({
   movie,
-  isWatched,
   watchedUserRating,
   userRating,
   setUserRating,
@@ -141,7 +138,6 @@ function MovieSection({
   return (
     <section>
       <MovieRating
-        isWatched={isWatched}
         watchedUserRating={watchedUserRating}
         userRating={userRating}
         setUserRating={setUserRating}
@@ -165,7 +161,6 @@ function MovieSection({
 }
 MovieSection.propTypes = {
   movie: PropTypes.object.isRequired,
-  isWatched: PropTypes.bool.isRequired,
   watchedUserRating: PropTypes.number.isRequired,
   userRating: PropTypes.number.isRequired,
   setUserRating: PropTypes.func.isRequired,
@@ -173,7 +168,6 @@ MovieSection.propTypes = {
 };
 
 function MovieRating({
-  isWatched,
   watchedUserRating,
   userRating,
   setUserRating,
@@ -181,7 +175,7 @@ function MovieRating({
 }) {
   return (
     <div className="rating">
-      {!isWatched ? (
+      {!watchedUserRating ? (
         <>
           <StarRating maxRating={10} size={25} onSetRate={setUserRating} />
           {userRating > 0 && (
@@ -200,7 +194,6 @@ function MovieRating({
 }
 
 MovieRating.propTypes = {
-  isWatched: PropTypes.bool.isRequired,
   watchedUserRating: PropTypes.number.isRequired,
   userRating: PropTypes.number.isRequired,
   setUserRating: PropTypes.func.isRequired,
